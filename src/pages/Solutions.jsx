@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { scrollWindowToTop } from '../utils/scrollToTop';
 import { FileText, Workflow, Brain, BarChart3, Settings, ArrowRight, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ParticleBackground from '../components/ParticleBackground';
 
 const solutions = [
   {
@@ -162,8 +164,30 @@ export default function Solutions() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeSolution = solutions[activeIndex];
 
+  useLayoutEffect(() => {
+    scrollWindowToTop();
+    return () => scrollWindowToTop();
+  }, []);
+
   return (
-    <div className="pt-24 pb-16">
+    <div className="relative pt-24 pb-16">
+      <ParticleBackground
+        fixed
+        particleCount={30}
+        opacity={0.25}
+        speed={0.4}
+        tint="#06B6D4"
+        particleSize={{ min: 1.5, max: 3 }}
+      />
+      <ParticleBackground
+        fixed
+        particleCount={60}
+        opacity={0.35}
+        speed={0.6}
+        tint="#06B6D4"
+        particleSize={{ min: 0.3, max: 1.2 }}
+      />
+      <div className="relative z-10">
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/[0.04] via-transparent to-transparent" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-r from-cyan-500/[0.06] to-violet-600/[0.04] rounded-full blur-[120px]" />
@@ -258,6 +282,7 @@ export default function Solutions() {
           </Link>
         </motion.div>
       </section>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ScanSearch, PenLine, GitBranch, Code2, BarChart3, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ParticleBackground from '../components/ParticleBackground';
 
 const steps = [
   { number: 1, icon: ScanSearch, title: 'Discover', description: 'Map the current state.' },
@@ -22,7 +23,24 @@ const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, tra
 
 export default function Approach() {
   return (
-    <div className="pt-24 pb-16">
+    <div className="relative pt-24 pb-16">
+      <ParticleBackground
+        fixed
+        particleCount={25}
+        opacity={0.20}
+        speed={0.3}
+        tint="#7C3AED"
+        particleSize={{ min: 1.5, max: 3 }}
+      />
+      <ParticleBackground
+        fixed
+        particleCount={50}
+        opacity={0.30}
+        speed={0.5}
+        tint="#7C3AED"
+        particleSize={{ min: 0.3, max: 1.2 }}
+      />
+      <div className="relative z-10">
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-violet-600/[0.04] via-transparent to-transparent" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-r from-cyan-500/[0.05] to-violet-600/[0.05] rounded-full blur-[120px]" />
@@ -187,6 +205,7 @@ export default function Approach() {
           </Link>
         </motion.div>
       </section>
+      </div>
     </div>
   );
 }

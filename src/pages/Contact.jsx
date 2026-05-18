@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ExternalLink, Send } from 'lucide-react';
+import ParticleBackground from '../components/ParticleBackground';
 
 const contactDetails = [
   { icon: Mail, label: 'Email', value: 'info@sixsigma-ai.com', href: 'mailto:info@sixsigma-ai.com' },
@@ -29,7 +30,22 @@ export default function Contact() {
   const inputClasses = 'w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all duration-300';
 
   return (
-    <div className="pt-24 pb-16">
+    <div className="relative pt-24 pb-16">
+      <ParticleBackground
+        fixed
+        particleCount={15}
+        opacity={0.10}
+        speed={0.25}
+        particleSize={{ min: 1.5, max: 3 }}
+      />
+      <ParticleBackground
+        fixed
+        particleCount={30}
+        opacity={0.15}
+        speed={0.4}
+        particleSize={{ min: 0.3, max: 1.2 }}
+      />
+      <div className="relative z-10">
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/[0.04] via-transparent to-transparent" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-r from-cyan-500/[0.05] to-violet-600/[0.04] rounded-full blur-[120px]" />
@@ -190,6 +206,7 @@ export default function Contact() {
           </motion.div>
         </div>
       </section>
+      </div>
     </div>
   );
 }
