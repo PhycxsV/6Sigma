@@ -53,9 +53,11 @@ function AppContent() {
   );
 }
 
+const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 export default function App() {
   return (
-    <Router>
+    <Router basename={routerBasename || undefined}>
       <AppContent />
     </Router>
   );
