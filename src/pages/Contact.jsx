@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, ExternalLink, Send, CheckCircle, X, Loader2 } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
+import { sendEmailJS } from '../utils/sendEmailJS';
 import ParticleBackground from '../components/ParticleBackground';
 
 const contactDetails = [
@@ -79,12 +79,13 @@ export default function Contact() {
   const submitForm = useCallback(async (token) => {
     if (!token) return;
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID?.trim();
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID?.trim();
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.trim();
+    const privateKey = import.meta.env.VITE_EMAILJS_PRIVATE_KEY?.trim();
 
-    if (!serviceId || !templateId || !publicKey) {
-      console.error('Missing EmailJS env vars');
+    if (!serviceId || !templateId || !publicKey || !privateKey) {
+      console.error('Missing EmailJS env vars (public + private key required for strict mode)');
       setIsError(true);
       return;
     }
@@ -101,10 +102,12 @@ export default function Contact() {
     };
 
     try {
-      await emailjs.send(
+      await sendEmailJS({
         serviceId,
         templateId,
-        {
+        publicKey,
+        privateKey,
+        templateParams: {
           name: trimmed.name,
           company: trimmed.company || 'Not provided',
           email: trimmed.email,
@@ -112,8 +115,7 @@ export default function Contact() {
           message: trimmed.message,
           subject: `New Inquiry — ${trimmed.company || trimmed.name}`,
         },
-        { publicKey }
-      );
+      });
 
       setIsSuccess(true);
       setFieldErrors({});
