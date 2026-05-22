@@ -15,27 +15,27 @@ export default function Hero() {
     <section className="noise-overlay relative min-h-screen flex items-center justify-center overflow-hidden">
       <ParticleBackground />
 
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/[0.06] via-violet-600/[0.03] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/[0.06] via-amber-400/[0.03] to-transparent" />
 
       <motion.div
-        className="absolute w-[500px] h-[500px] rounded-full blur-[140px] bg-cyan-500/[0.09]"
+        className="absolute w-[500px] h-[500px] rounded-full blur-[140px]"
         animate={{
           x: [0, 60, -40, 0],
           y: [0, -50, 30, 0],
           scale: [1, 1.15, 0.9, 1],
         }}
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
-        style={{ top: '20%', right: '15%' }}
+        style={{ top: '20%', right: '15%', background: 'radial-gradient(circle, #2563EB 0%, transparent 70%)' }}
       />
       <motion.div
-        className="absolute w-[400px] h-[400px] rounded-full blur-[120px] bg-violet-600/[0.08]"
+        className="absolute w-[400px] h-[400px] rounded-full blur-[120px]"
         animate={{
           x: [0, -50, 40, 0],
           y: [0, 40, -30, 0],
           scale: [1, 0.9, 1.1, 1],
         }}
         transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
-        style={{ bottom: '25%', left: '10%' }}
+        style={{ bottom: '25%', left: '10%', background: 'radial-gradient(circle, #F59E0B 0%, transparent 70%)' }}
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20">
@@ -62,7 +62,7 @@ export default function Hero() {
         >
           <span className="text-white">Agentic AI for</span>
           <br />
-          <span className="bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-600 to-amber-400 bg-clip-text text-transparent">
             Operational Excellence.
           </span>
         </motion.h1>
@@ -84,13 +84,13 @@ export default function Hero() {
         >
           <div className="relative group">
             <motion.div
-              className="absolute -inset-1 rounded-xl bg-gradient-to-r from-cyan-500/40 to-violet-600/40 blur-md"
+              className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600/40 to-amber-400/40 blur-md"
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             />
             <Link
               to="/contact"
-              className="shimmer-btn relative inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-semibold text-sm transition-all duration-300 shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:brightness-110"
+              className="shimmer-btn relative inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-gradient-to-r from-blue-600 to-amber-400 text-white font-semibold text-sm transition-all duration-300 shadow-xl shadow-blue-500/25 hover:shadow-blue-500/40 hover:from-blue-500 hover:to-amber-300"
             >
               Schedule Discovery
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -130,14 +130,14 @@ export default function Hero() {
                     ease: 'easeInOut',
                   }}
                 >
-                  <Icon className="w-5 h-5 text-cyan-400/70" />
+                  <Icon className="w-5 h-5 text-blue-500/70" />
                 </motion.div>
               );
             })}
 
-            <div className="relative w-20 h-20 rounded-2xl bg-[#10101c] border border-white/[0.1] flex items-center justify-center shadow-2xl shadow-cyan-500/10">
-              <Briefcase className="w-9 h-9 text-cyan-400" />
-              <div className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-gradient-to-r from-cyan-500 to-violet-600 flex items-center justify-center">
+            <div className="relative w-20 h-20 rounded-2xl bg-[#10101c] border border-white/[0.1] flex items-center justify-center shadow-2xl shadow-blue-500/10">
+              <Briefcase className="w-9 h-9 text-blue-500" />
+              <div className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-gradient-to-r from-blue-600 to-amber-400 flex items-center justify-center">
                 <Bell className="w-3 h-3 text-white" />
               </div>
             </div>

@@ -58,8 +58,8 @@ function ActiveCard({ solution }) {
       transition={{ enter: { duration: 0.3, ease: 'easeOut' }, exit: { duration: 0.2 } }}
       className="h-full p-8 rounded-2xl bg-white/[0.05] backdrop-blur-md border border-white/[0.1]"
     >
-      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/[0.12] to-violet-600/[0.12] border border-cyan-500/20 flex items-center justify-center mb-5">
-        <Icon className="w-10 h-10 text-cyan-400" />
+      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600/[0.12] to-amber-400/[0.12] border border-blue-500/20 flex items-center justify-center mb-5">
+        <Icon className="w-10 h-10 text-blue-500" />
       </div>
 
       <h3 className="text-2xl font-bold text-white">{solution.title}</h3>
@@ -77,11 +77,11 @@ function ActiveCard({ solution }) {
         ))}
       </div>
 
-      <div className="h-px bg-gradient-to-r from-cyan-400/30 to-violet-600/30 my-5" />
+      <div className="h-px bg-gradient-to-r from-blue-500/30 to-amber-400/30 my-5" />
 
       <Link
         to="/contact"
-        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-cyan-400/40 text-cyan-400 text-sm font-medium hover:bg-cyan-400/10 transition-colors duration-300"
+        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-blue-500/40 text-blue-500 text-sm font-medium hover:bg-blue-500/10 transition-colors duration-300"
       >
         Learn more
         <ArrowRight className="w-4 h-4" />
@@ -105,7 +105,7 @@ function MobileAccordion() {
               onClick={() => setOpenIndex(isOpen ? -1 : index)}
               className={`w-full flex items-center justify-between px-5 py-4 rounded-xl border transition-all duration-300 ${
                 isOpen
-                  ? 'bg-white/[0.1] border-cyan-400/40 text-white border-l-2 border-l-cyan-400'
+                  ? 'bg-white/[0.1] border-blue-500/40 text-white border-l-2 border-l-blue-500'
                   : 'bg-white/[0.05] border-white/[0.1] text-white/50 hover:bg-white/[0.08] hover:text-white/80'
               }`}
             >
@@ -128,8 +128,8 @@ function MobileAccordion() {
                   className="overflow-hidden"
                 >
                   <div className="p-6 mt-2 rounded-2xl bg-white/[0.05] backdrop-blur-md border border-white/[0.1]">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/[0.12] to-violet-600/[0.12] border border-cyan-500/20 flex items-center justify-center mb-4">
-                      <Icon className="w-8 h-8 text-cyan-400" />
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/[0.12] to-amber-400/[0.12] border border-blue-500/20 flex items-center justify-center mb-4">
+                      <Icon className="w-8 h-8 text-blue-500" />
                     </div>
                     <p className="text-white/70 text-sm leading-relaxed">{solution.description}</p>
                     <div className="flex flex-wrap gap-2 mt-4">
@@ -142,10 +142,10 @@ function MobileAccordion() {
                         </span>
                       ))}
                     </div>
-                    <div className="h-px bg-gradient-to-r from-cyan-400/30 to-violet-600/30 my-4" />
+                    <div className="h-px bg-gradient-to-r from-blue-500/30 to-amber-400/30 my-4" />
                     <Link
                       to="/contact"
-                      className="inline-flex items-center gap-2 text-cyan-400 text-sm font-medium"
+                      className="inline-flex items-center gap-2 text-blue-500 text-sm font-medium"
                     >
                       Learn more <ArrowRight className="w-4 h-4" />
                     </Link>
@@ -176,7 +176,7 @@ export default function Solutions() {
         particleCount={30}
         opacity={0.25}
         speed={0.4}
-        tint="#06B6D4"
+        tint="#2563EB"
         particleSize={{ min: 1.5, max: 3 }}
       />
       <ParticleBackground
@@ -184,13 +184,13 @@ export default function Solutions() {
         particleCount={60}
         opacity={0.35}
         speed={0.6}
-        tint="#06B6D4"
+        tint="#2563EB"
         particleSize={{ min: 0.3, max: 1.2 }}
       />
       <div className="relative z-10">
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/[0.04] via-transparent to-transparent" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-r from-cyan-500/[0.06] to-violet-600/[0.04] rounded-full blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-600/[0.04] via-transparent to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-r from-blue-600/[0.06] to-amber-400/[0.04] rounded-full blur-[120px]" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
@@ -199,7 +199,7 @@ export default function Solutions() {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] mb-6"
           >
-            <span className="text-xs font-semibold text-cyan-400 tracking-wider uppercase">Solutions</span>
+            <span className="text-xs font-semibold text-blue-500 tracking-wider uppercase">Solutions</span>
           </motion.div>
 
           <motion.h1
@@ -240,7 +240,7 @@ export default function Solutions() {
                   onClick={() => setActiveIndex(index)}
                   className={`w-full flex items-center justify-between px-5 py-4 rounded-xl cursor-pointer transition-all duration-300 ${
                     isActive
-                      ? 'bg-white/[0.1] border border-cyan-400/40 text-white border-l-2 border-l-cyan-400'
+                      ? 'bg-white/[0.1] border border-blue-500/40 text-white border-l-2 border-l-blue-500'
                       : 'bg-white/[0.05] border border-white/[0.1] text-white/50 hover:bg-white/[0.08] hover:text-white/80'
                   }`}
                 >
@@ -275,7 +275,7 @@ export default function Solutions() {
         >
           <Link
             to="/contact"
-            className="shimmer-btn group inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-semibold text-sm transition-all duration-300 shadow-xl shadow-cyan-500/25 hover:brightness-110"
+            className="shimmer-btn group inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-gradient-to-r from-blue-600 to-amber-400 text-white font-semibold text-sm transition-all duration-300 shadow-xl shadow-blue-500/25 hover:from-blue-500 hover:to-amber-300"
           >
             Schedule Discovery
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

@@ -30,8 +30,8 @@ export default function ParticleBackground({
     let particles = [];
 
     const tintRgb = tint ? hexToRgb(tint) : null;
-    const cyanRgb = { r: 6, g: 182, b: 212 };
-    const violetRgb = { r: 124, g: 58, b: 237 };
+    const cyanRgb = { r: 37, g: 99, b: 235 };
+    const violetRgb = { r: 245, g: 158, b: 11 };
 
     const opacityMul = opacity ?? 1;
     const speedMul = speed ?? 1;
@@ -67,7 +67,7 @@ export default function ParticleBackground({
 
     const lineColor = tintRgb
       ? blendColor(cyanRgb, tintRgb)
-      : '6, 182, 212';
+      : '37, 99, 235';
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);

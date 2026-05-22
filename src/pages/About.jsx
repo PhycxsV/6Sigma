@@ -49,8 +49,8 @@ export default function About() {
       />
       <div className="relative z-10">
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-violet-600/[0.04] via-transparent to-transparent" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-r from-cyan-500/[0.05] to-violet-600/[0.05] rounded-full blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-amber-400/[0.04] via-transparent to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-r from-blue-600/[0.05] to-amber-400/[0.05] rounded-full blur-[120px]" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
@@ -59,7 +59,7 @@ export default function About() {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] mb-6"
           >
-            <span className="text-xs font-semibold text-violet-400 tracking-wider uppercase">About</span>
+            <span className="text-xs font-semibold text-amber-400 tracking-wider uppercase">About</span>
           </motion.div>
 
           <motion.h1
@@ -97,10 +97,10 @@ export default function About() {
                 key={value.title}
                 variants={fadeUp}
                 whileHover={{ y: -4 }}
-                className="group p-6 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] hover:border-violet-500/30 transition-all duration-500 text-center cursor-default"
+                className="group p-6 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] hover:border-amber-500/30 transition-all duration-500 text-center cursor-default"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/[0.1] to-violet-600/[0.1] border border-violet-500/20 flex items-center justify-center mb-4 mx-auto group-hover:border-violet-500/40 transition-colors">
-                  <Icon className="w-6 h-6 text-violet-400" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/[0.1] to-amber-400/[0.1] border border-amber-500/20 flex items-center justify-center mb-4 mx-auto group-hover:border-amber-500/40 transition-colors">
+                  <Icon className="w-6 h-6 text-amber-400" />
                 </div>
                 <h3 className="text-lg font-extrabold text-white mb-2">{value.title}</h3>
                 <p className="text-sm text-slate-400">{value.description}</p>
@@ -111,7 +111,7 @@ export default function About() {
       </section>
 
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/[0.01] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-600/[0.01] to-transparent" />
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
           <motion.div
@@ -145,10 +145,10 @@ export default function About() {
                   target={info.href.startsWith('http') ? '_blank' : undefined}
                   rel="noopener noreferrer"
                   variants={fadeUp}
-                  className="group p-5 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-cyan-500/20 transition-all duration-300"
+                  className="group p-5 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-blue-500/20 transition-all duration-300"
                 >
                   <div className="flex items-start gap-3">
-                    <Icon className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
+                    <Icon className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
                     <div>
                       <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">{info.label}</div>
                       <div className="text-sm text-slate-300">{info.value}</div>
@@ -162,7 +162,7 @@ export default function About() {
           <div className="text-center">
             <Link
               to="/contact"
-              className="shimmer-btn group inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-semibold text-sm transition-all duration-300 shadow-xl shadow-cyan-500/25 hover:brightness-110"
+              className="shimmer-btn group inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-gradient-to-r from-blue-600 to-amber-400 text-white font-semibold text-sm transition-all duration-300 shadow-xl shadow-blue-500/25 hover:from-blue-500 hover:to-amber-300"
             >
               Schedule Discovery
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -196,9 +196,9 @@ export default function About() {
                 key={industry.name}
                 variants={fadeUp}
                 whileHover={{ y: -2 }}
-                className="group p-5 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-cyan-500/20 transition-all duration-300 text-center cursor-default"
+                className="group p-5 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-blue-500/20 transition-all duration-300 text-center cursor-default"
               >
-                <Icon className="w-6 h-6 text-slate-400 group-hover:text-cyan-400 transition-colors mx-auto mb-3" />
+                <Icon className="w-6 h-6 text-slate-400 group-hover:text-blue-500 transition-colors mx-auto mb-3" />
                 <span className="text-sm font-medium text-slate-300">{industry.name}</span>
               </motion.div>
             );

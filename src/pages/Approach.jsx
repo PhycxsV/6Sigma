@@ -29,7 +29,7 @@ export default function Approach() {
         particleCount={25}
         opacity={0.20}
         speed={0.3}
-        tint="#7C3AED"
+        tint="#F59E0B"
         particleSize={{ min: 1.5, max: 3 }}
       />
       <ParticleBackground
@@ -37,13 +37,13 @@ export default function Approach() {
         particleCount={50}
         opacity={0.30}
         speed={0.5}
-        tint="#7C3AED"
+        tint="#F59E0B"
         particleSize={{ min: 0.3, max: 1.2 }}
       />
       <div className="relative z-10">
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-violet-600/[0.04] via-transparent to-transparent" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-r from-cyan-500/[0.05] to-violet-600/[0.05] rounded-full blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-amber-400/[0.04] via-transparent to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-r from-blue-600/[0.05] to-amber-400/[0.05] rounded-full blur-[120px]" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
@@ -52,7 +52,7 @@ export default function Approach() {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] mb-6"
           >
-            <span className="text-xs font-semibold text-violet-400 tracking-wider uppercase">Methodology</span>
+            <span className="text-xs font-semibold text-amber-400 tracking-wider uppercase">Methodology</span>
           </motion.div>
 
           <motion.h1
@@ -80,7 +80,7 @@ export default function Approach() {
           <div className="hidden lg:block relative mb-8">
             <div className="absolute left-[10%] right-[10%] top-1/2 -translate-y-1/2 h-px overflow-hidden">
               <motion.div
-                className="w-full h-full bg-gradient-to-r from-cyan-400 to-violet-600"
+                className="w-full h-full bg-gradient-to-r from-blue-600 to-amber-400"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
@@ -93,7 +93,7 @@ export default function Approach() {
               {steps.map((_, i) => (
                 <motion.div
                   key={i}
-                  className="w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-violet-600 shadow-lg shadow-cyan-500/40 relative z-10"
+                  className="w-3 h-3 rounded-full bg-gradient-to-r from-blue-600 to-amber-400 shadow-lg shadow-blue-500/40 relative z-10"
                   initial={{ scale: 0, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   viewport={{ once: true }}
@@ -116,13 +116,13 @@ export default function Approach() {
                 <motion.div
                   key={step.number}
                   variants={fadeUp}
-                  whileHover={{ borderColor: '#06b6d4' }}
+                  whileHover={{ borderColor: '#2563EB' }}
                   transition={{ duration: 0.3 }}
                   className="relative p-6 rounded-2xl bg-white/[0.05] backdrop-blur-md border border-white/[0.1] transition-all duration-300 text-center"
                 >
                   <div className="flex justify-center mb-4">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/[0.12] to-violet-600/[0.12] border border-cyan-500/20 flex items-center justify-center">
-                      <Icon className="w-8 h-8 text-cyan-400" />
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600/[0.12] to-amber-400/[0.12] border border-blue-500/20 flex items-center justify-center">
+                      <Icon className="w-8 h-8 text-blue-500" />
                     </div>
                   </div>
                   <span className="text-xs text-white/30 font-medium">
@@ -138,7 +138,7 @@ export default function Approach() {
       </section>
 
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/[0.01] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-600/[0.01] to-transparent" />
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
           <motion.div
@@ -181,7 +181,7 @@ export default function Approach() {
               key={engagement.title}
               variants={fadeUp}
               whileHover={{ y: -4 }}
-              className="group p-6 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] hover:border-violet-500/30 transition-all duration-500 text-center cursor-default"
+              className="group p-6 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] hover:border-amber-500/30 transition-all duration-500 text-center cursor-default"
             >
               <h3 className="text-lg font-extrabold text-white mb-2">{engagement.title}</h3>
               <p className="text-sm text-slate-400">{engagement.description}</p>
@@ -198,7 +198,7 @@ export default function Approach() {
         >
           <Link
             to="/contact"
-            className="shimmer-btn group inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-semibold text-sm transition-all duration-300 shadow-xl shadow-cyan-500/25 hover:brightness-110"
+            className="shimmer-btn group inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-gradient-to-r from-blue-600 to-amber-400 text-white font-semibold text-sm transition-all duration-300 shadow-xl shadow-blue-500/25 hover:from-blue-500 hover:to-amber-300"
           >
             Start with a pilot
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

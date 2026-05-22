@@ -33,11 +33,11 @@ function StatCard({ stat }) {
     >
       <div className="text-3xl sm:text-4xl font-extrabold mb-2">
         {stat.display ? (
-          <span className="bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-600 to-amber-400 bg-clip-text text-transparent">
             {stat.display}
           </span>
         ) : (
-          <span className="bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-600 to-amber-400 bg-clip-text text-transparent">
             {stat.prefix}{count}{stat.suffix}
           </span>
         )}
@@ -50,7 +50,7 @@ function StatCard({ stat }) {
 export default function StatsSection() {
   return (
     <section className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/[0.01] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-600/[0.01] to-transparent" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div

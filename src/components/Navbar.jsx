@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { useScrollPosition } from '../hooks/useScrollPosition';
+import logo from '../assets/logo.png';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -63,14 +64,9 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <Link to="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-400 to-violet-600 flex items-center justify-center text-white font-extrabold text-sm shadow-lg shadow-cyan-500/20">
-                6σ
-              </div>
-              <span className="text-white font-bold text-lg tracking-tight">
-                Six Sigma AI
-              </span>
+          <div className="flex items-center justify-between h-24">
+            <Link to="/" className="flex items-center group">
+              <img src={logo} alt="Six Sigma AI" className="h-28 w-auto object-contain" />
             </Link>
 
             <div className="hidden lg:flex items-center gap-1">
@@ -80,7 +76,7 @@ export default function Navbar() {
                   to={link.path}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                     location.pathname === link.path
-                      ? 'text-cyan-400'
+                      ? 'text-blue-500'
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
@@ -92,7 +88,7 @@ export default function Navbar() {
             <div className="hidden lg:block">
               <Link
                 to="/contact"
-                className="shimmer-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-cyan-500 to-violet-600 text-white text-sm font-semibold transition-all duration-300 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:brightness-110"
+                className="shimmer-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-amber-400 text-white text-sm font-semibold transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:from-blue-500 hover:to-amber-300"
               >
                 Discovery Session
                 <ArrowRight className="w-4 h-4" />
@@ -131,7 +127,7 @@ export default function Navbar() {
                     onClick={() => setMobileOpen(false)}
                     className={`block px-6 py-4 text-3xl font-extrabold tracking-tight transition-colors ${
                       location.pathname === link.path
-                        ? 'bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent'
+                        ? 'bg-gradient-to-r from-blue-600 to-amber-400 bg-clip-text text-transparent'
                         : 'text-slate-300 hover:text-white'
                     }`}
                   >
@@ -148,7 +144,7 @@ export default function Navbar() {
                 <Link
                   to="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="shimmer-btn inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-violet-600 text-white text-lg font-bold shadow-xl shadow-cyan-500/20"
+                  className="shimmer-btn inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-amber-400 text-white text-lg font-bold shadow-xl shadow-blue-500/20"
                 >
                   Discovery Session
                   <ArrowRight className="w-5 h-5" />

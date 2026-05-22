@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Mail, ExternalLink, Send } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const footerLinks = {
   explore: [
@@ -24,12 +25,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-400 to-violet-600 flex items-center justify-center text-white font-extrabold text-sm">
-                6σ
-              </div>
-              <span className="text-white font-bold text-lg tracking-tight">
-                Six Sigma AI
-              </span>
+              <img src={logo} alt="Six Sigma AI" className="h-10 w-auto object-contain" />
             </Link>
             <p className="text-slate-400 text-sm mb-6 max-w-sm leading-relaxed">
               Smarter processes. Engineered by intelligence.
@@ -48,11 +44,11 @@ export default function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@company.com"
-                  className="flex-1 px-4 py-2.5 rounded-lg bg-white/[0.04] border border-white/[0.08] text-white text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all duration-300"
+                  className="flex-1 px-4 py-2.5 rounded-lg bg-white/[0.04] border border-white/[0.08] text-white text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                 />
                 <button
                   type="submit"
-                  className="shimmer-btn px-4 py-2.5 rounded-lg bg-gradient-to-r from-cyan-500 to-violet-600 text-white text-sm font-semibold hover:brightness-110 transition-all duration-300 shadow-lg shadow-cyan-500/15"
+                  className="shimmer-btn px-4 py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-amber-400 text-white text-sm font-semibold hover:from-blue-500 hover:to-amber-300 transition-all duration-300 shadow-lg shadow-blue-500/15"
                 >
                   <Send className="w-4 h-4" />
                 </button>
@@ -61,7 +57,7 @@ export default function Footer() {
 
             <Link
               to="/contact"
-              className="shimmer-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-cyan-500 to-violet-600 text-white text-sm font-semibold transition-all duration-300 shadow-lg shadow-cyan-500/20 hover:brightness-110"
+              className="shimmer-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-amber-400 text-white text-sm font-semibold transition-all duration-300 shadow-lg shadow-blue-500/20 hover:from-blue-500 hover:to-amber-300"
             >
               Schedule a Discovery Session
               <ArrowRight className="w-4 h-4" />

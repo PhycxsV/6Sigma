@@ -39,7 +39,7 @@ const itemVariants = {
 export default function WhySection() {
   return (
     <section className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/[0.01] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-600/[0.01] to-transparent" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
@@ -57,7 +57,7 @@ export default function WhySection() {
         <div className="relative">
           <motion.div
             className="absolute top-[56px] left-[12.5%] right-[12.5%] h-px hidden lg:block"
-            style={{ background: 'linear-gradient(90deg, #06b6d4, #7c3aed)' }}
+            style={{ background: 'linear-gradient(90deg, #2563EB, #F59E0B)' }}
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
@@ -78,13 +78,13 @@ export default function WhySection() {
                   key={reason.title}
                   variants={itemVariants}
                   whileHover={{ y: -4 }}
-                  className="group relative p-6 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/[0.08] hover:border-violet-500/30 transition-all duration-500 text-center cursor-default"
+                  className="group relative p-6 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/[0.08] hover:border-amber-500/30 transition-all duration-500 text-center cursor-default"
                 >
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-600/[0.04] to-cyan-500/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-amber-400/[0.04] to-blue-600/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   <div className="relative">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/[0.1] to-violet-600/[0.1] border border-violet-500/20 flex items-center justify-center mb-4 mx-auto group-hover:border-violet-500/40 transition-colors duration-500">
-                      <Icon className="w-6 h-6 text-violet-400 group-hover:text-violet-300 transition-colors" />
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/[0.1] to-amber-400/[0.1] border border-amber-500/20 flex items-center justify-center mb-4 mx-auto group-hover:border-amber-500/40 transition-colors duration-500">
+                      <Icon className="w-6 h-6 text-amber-400 group-hover:text-amber-300 transition-colors" />
                     </div>
                     <h3 className="text-lg font-extrabold text-white mb-2">{reason.title}</h3>
                     <p className="text-sm text-slate-400 leading-relaxed">{reason.description}</p>
