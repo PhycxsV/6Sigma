@@ -5,12 +5,30 @@ import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { sendEmailJS } from '../utils/sendEmailJS';
 import ParticleBackground from '../components/ParticleBackground';
 
+const MESSAGE_MIN = 10;
+const MESSAGE_MAX = 1000;
+
 const contactDetails = [
   { icon: Mail, label: 'Email', value: 'info@sixsigma-ai.com', href: 'mailto:info@sixsigma-ai.com' },
   { icon: Phone, label: 'Phone', value: '+63 917 123 4567', href: 'tel:+639171234567' },
   { icon: MapPin, label: 'Address', value: 'Unit 123, Innovation Hub, Ortigas, Pasig City, PH', href: 'https://maps.google.com/?q=Ortigas+Center+Pasig+City' },
   { icon: ExternalLink, label: 'LinkedIn', value: '@sixsigma-ai', href: 'https://www.linkedin.com/' },
 ];
+
+/** Normalize to 639XXXXXXXXX (12 digits) for validation. */
+function normalizePhilippineMobile(phone) {
+  const digits = phone.replace(/\D/g, '');
+  if (digits.startsWith('63')) return digits;
+  if (digits.startsWith('0')) return `63${digits.slice(1)}`;
+  if (digits.startsWith('9')) return `63${digits}`;
+  return digits;
+}
+
+function isValidPhilippineMobile(phone) {
+  const trimmed = phone.trim();
+  if (!trimmed) return true;
+  return /^639\d{9}$/.test(normalizePhilippineMobile(trimmed));
+}
 
 function validateForm(data) {
   const errors = {};
@@ -28,10 +46,18 @@ function validateForm(data) {
     errors.email = 'Please enter a valid email address';
   }
 
+  if (data.phone.trim() && !isValidPhilippineMobile(data.phone)) {
+    errors.phone =
+      'Enter a valid Philippine mobile number (e.g. +63 917 123 4567 or 0917 123 4567)';
+  }
+
+  const messageLen = data.message.trim().length;
   if (!data.message.trim()) {
     errors.message = 'Message is required';
-  } else if (data.message.trim().length < 10) {
-    errors.message = 'Message must be at least 10 characters';
+  } else if (messageLen < MESSAGE_MIN) {
+    errors.message = `Message must be at least ${MESSAGE_MIN} characters`;
+  } else if (messageLen > MESSAGE_MAX) {
+    errors.message = `Message must be at most ${MESSAGE_MAX} characters`;
   }
 
   return errors;
@@ -65,7 +91,11 @@ export default function Contact() {
   }, [showCaptchaModal]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name } = e.target;
+    let { value } = e.target;
+    if (name === 'message' && value.length > MESSAGE_MAX) {
+      value = value.slice(0, MESSAGE_MAX);
+    }
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (fieldErrors[name]) {
       setFieldErrors((prev) => {
@@ -287,9 +317,11 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     autoComplete="tel"
-                    className={inputOk}
-                    placeholder="+63 XXX XXX XXXX"
+                    aria-invalid={!!fieldErrors.phone}
+                    className={fieldErrors.phone ? inputErr : inputOk}
+                    placeholder="+63 917 123 4567"
                   />
+                  {fieldError('phone')}
                 </div>
               </div>
 
@@ -301,14 +333,23 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
+                  maxLength={MESSAGE_MAX}
                   aria-invalid={!!fieldErrors.message}
                   className={`${fieldErrors.message ? inputErr : inputOk} resize-none`}
                   placeholder="Tell us about your process improvement needs..."
                 />
                 <div className="mt-1.5 flex items-start justify-between gap-2">
                   {fieldError('message')}
-                  <p className={`text-xs ml-auto flex-shrink-0 ${formData.message.length < 10 ? 'text-slate-500' : 'text-slate-600'}`}>
-                    {formData.message.length} / 10 min
+                  <p
+                    className={`text-xs ml-auto flex-shrink-0 ${
+                      formData.message.length > MESSAGE_MAX
+                        ? 'text-red-400'
+                        : formData.message.length < MESSAGE_MIN
+                          ? 'text-slate-500'
+                          : 'text-slate-600'
+                    }`}
+                  >
+                    {formData.message.length} / {MESSAGE_MAX}
                   </p>
                 </div>
               </div>
